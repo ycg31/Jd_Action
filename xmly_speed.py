@@ -83,6 +83,8 @@ def smartNotify(content):
 
     # only for test
     content = content.replace('if _notify_time.split()[0] == str(notify_time) and int(_notify_time.split()[1]) > 30:', 'if True:', 1)
+    content = content.replace('for i in table:', '# for i in table:', 1)
+    content = content.replace('    message += f"[{i[0].replace(' ',''):<9}]: {i[1]:<6.2f} (＋{i[2]:<4.2f}) {i[3]:<7.2f} {i[4]}\\30\n"', 'message += f"[{table[0][0].replace(' ',''):<9}]: {table[0][1]:<6.2f} (＋{table[0][2]:<4.2f}) {table[0][3]:<7.2f} {table[0][4]}\\30\n"', 1)
     content = content.replace('第30天需要手动签到 by zero_s1, (*^_^*)欢迎打赏', '第30天需要手动签到', 1)
     content = content.replace('if len(table) <= 4:', 'if len(table) <= 4 and len(table) > 0:', 1)
     return content
